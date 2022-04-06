@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content {
+            padding: 5px 18px 5px 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        .scroll {
+            width: 18px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #eee;
+        }
+
+        .bar {
+            height: 100px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: red;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<script src="index.js"></script>
+
+<body>
+    <div class="box" id="box">
+        <div class="content" id="content">
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头
+            床前明月光啊，明月光，疑是地上霜啊，举头嘿嘿
+        </div>
+        <!--文字内容-->
+        <div id="scroll" class="scroll">
+            <!--装滚动条的层-->
+            <div class="bar" id="bar"></div>
+            <!--滚动条-->
+        </div>
+    </div>
+</body>
+<script>
+    var box = getId("box");
+    var content = getId("content");
+    var scroll1 = getId("scroll");
+    var bar = getId("bar");
+    //设置滚动条长度随文本框长度变长
+    var barHeight = scroll1.offsetHeight * box.offsetHeight / content.offsetHeight;
+    bar.style.height = barHeight + "px";
+    //移动滚动条
+    bar.onmousedown = function (e) {
+        //
+        var spaceY = e.clientY - bar.offsetTop;
+        document.onmousemove = function (e) {
+            //点击位置
+            var y = e.clientY - spaceY;
+            var y2 = scroll1.offsetHeight - bar.offsetHeight;
+            y = y < 0 ? 0 : y > y2 ? y2 : y;
+            console.log(y);
+            bar.style.top = y + "px";
+            //移动滑动条的时候，字体不会被选中
+            getSelection().removeAllRanges();
+            //文字移动的距离=滚动条移动的距离*文字div最大移动距离/滚动条最大移动距离
+            var moveY = y*(content.offsetHeight-box.offsetHeight)/(scroll1.offsetHeight-bar.offsetHeight);
+            content.style.marginTop = -moveY + "px";
+        };
+    };
+    //鼠标抬起，停止移动滚动条
+    document.onmouseup = function () {
+        document.onmousemove = null;
+    }
+</script>
+
+</html>

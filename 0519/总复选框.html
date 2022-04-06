@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrap {
+        width: 300px;
+        margin: 100px auto 0;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #c0c0c0;
+        width: 300px;
+    }
+
+    th,
+    td {
+        border: 1px solid #d0d0d0;
+        color: #404060;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #09c;
+        font: bold 16px "微软雅黑";
+        color: #fff;
+    }
+
+    td {
+        font: 14px "微软雅黑";
+    }
+
+    tbody tr {
+        background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+        cursor: pointer;
+        background-color: #fafafa;
+    }
+</style>
+<script src="index.js"></script>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll" />
+                    </th>
+                    <th>菜名</th>
+                    <th>饭店</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>红烧肉</td>
+                    <td>田老师</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>西红柿鸡蛋</td>
+                    <td>田老师</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>油炸榴莲</td>
+                    <td>田老师</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>清蒸助教</td>
+                    <td>田老师</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    var ckAll = getid("j_cbAll");
+    var cks = getid("j_tb").getElementsByTagName("input");
+
+    ckAll.onclick = function () {
+        for (var i = 0; i < cks.length; i++) {
+            //令所有底下的复选框跟总复选框状态一样
+            cks[i].checked = ckAll.checked;
+        }
+    };
+
+    for (var i = 0; i < cks.length; i++) {
+        cks[i].onclick = function(){
+            //定义一个flag表示是否选中，这里默认都未选中
+            var flag = false;
+            //判断复选框是否全部选中
+            for(var j = 0; j < cks.length; j++){
+                //当点击下去时，该复选框未被选中，把flag调成true，跳出这次循环并继续寻找下一个
+                if(cks[j].checked == false){
+                    flag = true;
+                    break;
+                }
+            }
+            //总复选框状态取反flag，说明复选框已经全被选中
+            ckAll.checked = !flag;
+        };
+    }
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<style>
+    li{
+        list-style: none;
+    }
+</style>
+<body>
+    
+    <input type="button" id="btn" value="点我"/>
+
+    <ul id="ul1">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+        <li>55</li>
+        <li>66</li>
+        <li>77</li>
+        <li>88</li>
+    </ul>
+
+</body>
+<script>
+
+    getid("btn").onclick = function(){
+        var list = getid("ul1").getElementsByTagName("li");
+        for(var i = 0; i < list.length; i++){
+            if(i%2==0){
+                list[i].style.backgroundColor = "red";
+            }else{
+                list[i].style.backgroundColor = "yellow";
+            }
+        }
+    }
+
+</script>
+</html>

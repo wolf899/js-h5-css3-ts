@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<style>
+    div {
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+    }
+</style>
+
+<body>
+
+    <input type="button" value="点我" id="btn" />
+    <div id="div1"></div>
+
+</body>
+<script>
+    var arr = [{
+            name: "百度",
+            href: "https://www.baidu.com"
+        },
+        {
+            name: "百度",
+            href: "https://www.baidu.com"
+        },
+        {
+            name: "百度",
+            href: "https://www.baidu.com"
+        },
+        {
+            name: "百度",
+            href: "https://www.baidu.com"
+        },
+        {
+            name: "百度",
+            href: "https://www.baidu.com"
+        },
+        {
+            name: "百度",
+            href: "https://www.baidu.com"
+        },
+        {
+            name: "百度",
+            href: "https://www.baidu.com"
+        },
+        {
+            name: "百度",
+            href: "https://www.baidu.com"
+        },
+        {
+            name: "百度",
+            href: "https://www.baidu.com"
+        },
+    ];
+
+    getid("btn").onclick = function () {
+        var tableobj = document.createElement("table");
+        tableobj.border = "1";
+        tableobj.cellPadding = "0";
+        tableobj.cellSpacing = "0";
+        getid("div1").appendChild(tableobj);
+        
+        for (var i = 0; i < arr.length; i++) {
+            var trobj = document.createElement("tr");
+            tableobj.appendChild(trobj);
+            var td1 = document.createElement("td");
+            td1.innerText = arr[i].name;
+            trobj.appendChild(td1);
+            var td2 = document.createElement("td");
+            td2.innerHTML = "<a href="+arr[i].href+">"+arr[i].name+"</a>";
+            trobj.appendChild(td2);
+        }
+        
+    }
+</script>
+
+</html>

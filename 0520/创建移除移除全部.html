@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<style>
+
+    div{
+        width: 300px;
+        height: 300px;
+        border: 3px solid pink;
+    }
+
+</style>
+<body>
+    
+    <input type="button" value="添加一個元素" id="btn1" />
+    <input type="button" value="刪除第一個元素" id="btn2" />
+    <input type="button" value="刪除所有元素" id="btn3" />
+
+    <div id="div1"></div>
+
+</body>
+<script>
+
+    var i = 0;
+    var getdiv = getid("div1");
+
+    getid("btn1").onclick = function(){
+        i++;
+        var obj = document.createElement("input");
+        obj.type = "button";
+        obj.value = "按钮"+i;
+        getdiv.insertBefore(obj,getdiv.firstElementChild);
+    };
+    
+    getid("btn2").onclick = function(){
+        getdiv.removeChild(getdiv.firstElementChild);
+    };
+
+    getid("btn3").onclick = function(){
+        while(getdiv.firstElementChild){
+            getdiv.removeChild(getdiv.firstElementChild);
+        }
+    };
+
+</script>
+</html>

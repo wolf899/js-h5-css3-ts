@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<body>
+    <table id="tb" border="1">
+        <tbody id="tbd">
+            <tr>
+                <td>猪猪:</td>
+                <td>我喜欢吃肉</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        昵称:<input type="text" value="" id="userName" /><br />
+        <textarea name="" id="tt" cols="30" rows="10"></textarea><br />
+        <input type="button" value="评论一下" id="btn" /><br />
+    </div>
+</body>
+<script>
+
+    getId("btn").onclick = function(){
+        var userName = getId("userName");
+        var tt = getId("tt");
+
+        var tr = document.createElement("tr");
+        getId("tbd").appendChild(tr);
+
+        var td1 = document.createElement("td");
+        tr.appendChild(td1);
+        td1.innerHTML = userName.value;
+
+        var td2 = document.createElement("td");
+        tr.appendChild(td2);
+        td2.innerHTML = tt.value;
+
+        //添加完记得清空之前输入的东西
+        userName.value = "";
+        tt.value = "";
+    };
+
+</script>
+</html>

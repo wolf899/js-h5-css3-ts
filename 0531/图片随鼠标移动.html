@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+<script src="index.js"></script>
+<script>
+    document.onmousemove = function (e) {
+        //IE8兼容
+        // e = window.event || e;
+        //clientX是可视区域X坐标
+        //pageX是相对页面顶部坐标
+        getId("img1").style.left = e.pageX + "px";
+        getId("img1").style.top =  e.pageY + "px";
+
+    };
+
+    function getScrollLeft(){
+        return document.body.scrollLeft;
+    };
+
+    function getScrollTop(){
+        return document.body.scrollTop;
+    };
+
+</script>
+
+<body>
+    <img src="images/cloud.gif" alt="" id="img1">
+</body>
+
+</html>

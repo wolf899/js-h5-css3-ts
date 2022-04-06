@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<style>
+    div {
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+        position: absolute;
+    }
+</style>
+
+<body>
+
+    <input type="button" value="移动到400" id="btn1" />
+    <input type="button" value="移动到800" id="btn2" />
+    <input type="button" value="返回到0" id="btn3" />
+    <div id="div1"></div>
+
+</body>
+<script>
+    function moveElement(ele, target) {
+        clearInterval(ele.timeId);
+        ele.timeId = setInterval(function () {
+            var current = ele.offsetLeft;//offsetLeft是数字类型，后面需要拼接px
+            var distance = 9;
+            distance = current < target ? distance : -distance;
+            current += distance;
+            if (Math.abs(target - current) > Math.abs(distance)) {
+                ele.style.left = current + "px";
+            } else {
+                clearInterval(ele.timeId);
+                ele.style.left = target + "px";
+            }
+        }, 200);
+    };
+
+    getId("btn1").onclick = function () {
+        moveElement(getid("div1"), 400);
+    };
+
+    getId("btn2").onclick = function () {
+        moveElement(getid("div1"), 800);
+    };
+
+    getId("btn3").onclick = function () {
+        moveElement(getid("div1"), 0);
+    };
+</script>
+
+</html>

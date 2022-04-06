@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .box {
+        width: 400px;
+        height: 300px;
+        border: 1px solid #ccc;
+        margin: 100px auto;
+        overflow: hidden;
+    }
+
+    .hd {
+        height: 45px;
+    }
+
+    .hd span {
+        display: inline-block;
+        width: 90px;
+        background-color: pink;
+        line-height: 45px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .hd span.current {
+        background-color: purple;
+    }
+
+    .bd li {
+        height: 255px;
+        background-color: purple;
+        display: none;
+    }
+
+    .bd li.current {
+        display: block;
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="hd">
+            <span class="current">体育</span>
+            <span>娱乐</span>
+            <span>新闻</span>
+            <span>综合</span>
+        </div>
+        <div class="bd">
+            <ul>
+                <li class="current">我是体育模块</li>
+                <li>我是娱乐模块</li>
+                <li>我是新闻模块</li>
+                <li>我是综合模块</li>
+            </ul>
+        </div>
+    </div>
+<script src="index.js"></script>
+<script>
+    //拿到span伪数组
+    var spans = getid("box").getElementsByClassName("hd")[0].getElementsByTagName("span");
+    //拿到li伪数组
+    var lis = getid("box").getElementsByClassName("bd")[0].getElementsByTagName("li");
+    //遍历span伪数组，拿到全部span
+    for(var i = 0; i < spans.length; i++){
+        //设置一个自定义属性index当做索引
+        //console.log(spans[i]);
+        spans[i].setAttribute("index",i);
+        //给全部span添加点击监听事件
+        spans[i].onclick = function(){
+            //遍历
+            for(var j = 0; j < spans.length; j++){
+                //console.log(spans[j]);
+                //移除全部span的class属性（样式）
+                spans[j].removeAttribute("class");
+            }
+            //给所点击的span附上current属性值(this就是代表所点击的span)
+            this.className = "current";
+            //定义num接收所点击的span对应的索引值
+            var num = this.getAttribute("index");
+            //遍历li伪数组，拿到全部li
+            for(var k = 0; k < lis.length; k++){
+                //移除全部li的class属性
+                lis[k].removeAttribute("class");
+            }
+            //给所点击的li附上current属性值
+            lis[num].className = "current";
+        };
+    }
+
+</script>
+</html>

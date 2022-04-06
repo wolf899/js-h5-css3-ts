@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    input{
+        color: rgb(185, 179, 179);
+    }
+</style>
+<script src="index.js"></script>
+<body>
+
+    <input type="text" value="请输入汉字" id="text"/>
+</body>
+
+<script>
+
+    var obj = document.getElementById("text");
+    //获取input焦点
+    getid("text").onfocus = function(){
+        if(this.value == "请输入汉字"){
+            this.value = "";
+            this.style.color = "black";
+        }
+    }
+    //失去input焦点
+    getid("text").onblur = function(){
+        if(this.value == ""){
+            this.value = "请输入汉字";
+            this.style.color = "rgb(185, 179, 179)"
+        }
+    }
+
+</script>
+</html>

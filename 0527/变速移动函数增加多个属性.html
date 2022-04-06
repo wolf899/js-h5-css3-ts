@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<style>
+    div {
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+        position: absolute;
+    }
+</style>
+
+<body>
+
+    <input type="button" value="变" id="btn1" />
+    <div id="div1"></div>
+
+</body>
+<script>
+    //计算后的样式属性   一个元素任一样式属性值 String属性
+    function getStyle(element, attr) {
+        return getComputedStyle(element)[attr];
+    };
+    
+    function moveElement(element, json) {
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            //boolean用来判断所有属性是否都变换到位
+            var boolean = true;
+            //循环遍历对象json，新建一个attr当做属性
+            for(var attr in json){
+                var current = parseInt(getStyle(element, attr));
+                //需要到达的位置就是json中的attr属性的值
+                var target = json[attr];
+                var distance = (target - current) / 10;
+                distance = distance > 0 ? Math.ceil(distance) : Math.floor(distance);
+                current += distance;
+                element.style[attr] = current + "px";
+                //所有属性没有都变换完成时，boolean=false，下一个定时器开始时，重新再循环一遍
+                if(current!=target){
+                    boolean = false;
+                }
+            }
+            //当所有属性都变换完成时，停止定时器
+            if(boolean){
+                clearInterval(element.timeId);
+            }
+        }, 20);
+    };
+
+    getId("btn1").onclick = function () {
+        moveElement(getId("div1"), {"width":400,"height":400,"top":80,"left":400});
+    };
+
+</script>
+
+</html>
