@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // function Person(){
+
+    // }
+    // var person1=new Person();
+
+    // console.log(person1.__proto__);
+    // console.log(person1.constructor);
+    // console.log(Person.__proto__);
+    // console.log(Person.prototype.constructor);
+    // console.log(person1.__proto__.constructor);
+    // console.log(Person.prototype);
+
+    function F1(age) {
+        this.age = age;
+    }
+
+    function F2(age) {
+        this.age = age;
+    }
+    F2.prototype = new F1(10);
+
+    function F3(age) {
+        this.age = age;
+    }
+    F3.prototype = new F2(20);
+    var f3 = new F3(30);
+    console.log(f3);
+</script>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            float: left;
+            margin-left: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 180px;
+        }
+
+        input {
+            margin-left: 30%;
+        }
+    </style>
+</head>
+<script src="../index.js"></script>
+
+<body>
+    <ul>
+        <li><img src="images/1.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+        <li><img src="images/2.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+        <li><img src="images/3.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+        <li><img src="images/4.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+    </ul>
+</body>
+<script>
+    var btns = getTagName("input");
+    
+    function getValue() {
+        var value = 2;
+        return function () {
+            this.value = "赞(" + (value++) + ")";
+        };
+    };
+    
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = getValue();
+    }
+</script>
+
+</html>

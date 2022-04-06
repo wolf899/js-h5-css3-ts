@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //组合集成：原型继承+借用构造函数继承
+    function Person(name,age,sex){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    };
+    Person.prototype.say = function(){
+        console.log("人");
+    };
+    function Student(name,age,sex,score){
+        Person.call(this,name,age,sex);
+        this.score = score;
+    };
+    Student.prototype = new Person();
+    Student.prototype.eat = function(){
+        console.log("学生吃东西");
+    };
+
+    var stu = new Student("小明",20,"男",75);
+    console.log(stu.name,stu.age,stu.sex,stu.score);
+    stu.say();
+    stu.eat();
+
+    var stu2 = new Student("小黄",25,"男",80);
+    console.log(stu2.name,stu2.age,stu2.sex,stu2.score);
+    stu2.say();
+    stu2.eat();
+
+
+</script>
+</html>

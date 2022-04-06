@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //求n个数字的和  n+n-1+n-2+n-3+...+1
+    function getSum(n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n + getSum(n - 1);
+    };
+    console.log(getSum(10));
+
+    //求一个数字各个位数的和
+    function getSum2(n) {
+        if (n < 10) {
+            return n;
+        }
+        return n % 10 + getSum2(parseInt(n / 10));
+    };
+    console.log(getSum2(236));
+
+    //斐波那契数列
+    function getNumber(n){
+        if(n ==1 || n==2){
+            return 1;
+        }
+        return getNumber(n-1)+getNumber(n-2);
+    };
+
+    console.log(getNumber(9));
+
+</script>
+
+</html>

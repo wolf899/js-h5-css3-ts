@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //函数的自调用，第一个Window是形参，第二个Window是实参
+    (function(window){
+        //产生随机数的构造函数
+        function Random(){
+
+        };
+        //在原型对象中添加随机数方法
+        Random.prototype.getRandom = function(min,max){
+            return Math.floor(Math.random()*(max-min)+min);
+        };
+        //把Random对象赋值给顶级对象window=====外部就可以直接使用（局部变量变成全局变量）
+        window.Random = new Random();
+    })(window);
+    //实力化对象
+    var rm = new Random();
+    //直接调用getRandom方法
+    console.log(rm.getRandom(10,15));
+
+</script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .map {
+            width: 800px;
+            height: 600px;
+            background-color: #CCC;
+            position: relative;
+        }
+    </style>
+</head>
+<script src="../index.js"></script>
+<body>
+    <div class="map"></div>
+</body>
+<script>
+    //产生随机数对象
+    (function (window) {
+        //产生随机数的构造函数
+        function Random() {
+
+        };
+        //在原型对象中添加随机数方法
+        Random.prototype.getRandom = function (min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        };
+        //把Random对象暴露给顶级对象window=====外部就可以直接使用（局部变量变成全局变量）
+        window.Random = new Random();
+    })(window);
+
+    //产生小方块对象
+    (function(window){
+        //拿到map元素对象
+        var map = getClassName("map")[0];
+        // console.log(map);
+        //创建小方块方法
+        function Food(width,height,color){
+            //默认小方块宽高20
+            this.width = width || 20;
+            this.height = height || 20;
+            this.x = 0;
+            this.y = 0;
+            this.color = color;
+            this.element = document.createElement("div");
+        };
+        //让小方块显示在地图上
+        Food.prototype.init = function(map){
+            var div = this.element;
+            div.style.position = "absolute";
+            div.style.width = this.width + "px";
+            div.style.height = this.height + "px";
+            div.style.backgroundColor = this.color;
+            map.appendChild(div);
+            this.render(map);
+        };
+        //产生随机位置
+        Food.prototype.render = function(map){
+            var x = Random.getRandom(0,map.offsetWidth/this.width)*this.width;
+            var y = Random.getRandom(0,map.offsetHeight/this.height)*this.height;
+            this.x = x;
+            this.y = y;
+            var div = this.element;
+            div.style.left = x + "px";
+            div.style.top = y + "px";
+        };
+
+        var fd = new Food(20,20,"pink");
+        fd.init(map);
+
+    })(window);
+
+</script>
+
+</html>

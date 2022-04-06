@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    function Person(){
+
+    }
+
+    var pp = Person.prototype;
+
+    pp.age = 10;
+    pp.sex = "男";
+    pp.height = 50;
+    pp.say = function(){
+        console.log("你好");
+    };
+
+    var obj2 = {};
+
+    for(var key in pp){
+        obj2[key] = pp[key];
+    }
+
+    console.dir(obj2);
+    obj2.say();
+
+</script>
+</html>

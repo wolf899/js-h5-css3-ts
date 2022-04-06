@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                <p>1</p>
+            </li>
+            <li>
+                <p>2</p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <h2>一</h2>
+            </li>
+            <li>
+                <h2>二</h2>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    
+    function forDOM(node) {
+        //对node的处理
+        if (node && node.nodeType === 1) {
+            console.log("节点名字："+node.tagName);
+        }
+        var i = 0,
+            childNodes = node.childNodes,
+            item;
+        for (; i < childNodes.length; i++) {
+            item = childNodes[i];
+            if (item.nodeType === 1) {
+                forDOM(item);
+            }
+        }
+    }
+    
+    forDOM(document.documentElement);
+
+
+</script>
+
+</html>
