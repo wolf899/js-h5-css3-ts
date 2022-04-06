@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+
+<body>
+
+    <input type="button" value="点我111111" id="btn" />
+
+</body>
+<script>
+    getid("btn").onclick = btnListener;
+    getid("btn").onmouseover = btnListener;
+    getid("btn").onmouseout = btnListener;
+
+    function btnListener(e) {
+        switch (e.type) {
+            case "click":
+                console.log("点到了");
+                break;
+            case "mouseover":
+                this.style.backgroundColor = "skyblue";
+                break;
+            case "mouseout":
+                this.style.backgroundColor = "pink";
+                break;
+        }
+    }
+</script>
+
+</html>

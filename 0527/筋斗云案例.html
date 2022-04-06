@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    ul {
+        list-style: none
+    }
+
+    body {
+        background-color: #333;
+    }
+
+    .nav {
+        width: 800px;
+        height: 42px;
+        margin: 100px auto;
+        background: url(images/rss.png) right center no-repeat;
+        background-color: #fff;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .nav li {
+        width: 83px;
+        height: 42px;
+        text-align: center;
+        line-height: 42px;
+        float: left;
+        cursor: pointer;
+    }
+
+    .nav span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 83px;
+        height: 42px;
+        background: url(images/cloud.gif) no-repeat;
+    }
+
+    ul {
+        position: relative;
+    }
+</style>
+
+<body>
+    <div class="nav">
+        <span id="cloud"></span>
+        <ul id="navBar">
+            <li>北京校区</li>
+            <li>上海校区</li>
+            <li>广州校区</li>
+            <li>深圳校区</li>
+            <li>武汉校区</li>
+            <li>关于我们</li>
+            <li>联系我们</li>
+            <li>招贤纳士</li>
+        </ul>
+    </div>
+</body>
+<script src="index.js"></script>
+<script>
+    //匀速动画
+    function moveElement(element, target) {
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            var current = element.offsetLeft; //offsetLeft是数字类型，后面需要拼接px
+            var distance = (target - current) / 10;
+            distance = current > 0 ? Math.ceil(distance) : Math.floor(distance);
+            current += distance;
+            element.style.left = current + "px";
+            if (current == distance) {
+                clearInterval(element.timeId);
+            }
+            // console.log("目标位置：" + target + ",当前位置：" + current + ",每次移动步数：" + distance);
+        }, 20);
+    };
+
+    var cloud = getId("cloud");
+    var list = getId("navBar").children;
+    var lastNumber = 0;
+    for (var i = 0; i < list.length; i++) {
+        list[i].onmouseover = mouseOverEvent;
+        list[i].onmouseout = mouseOutEvent;
+        list[i].onclick = clickEvent;
+    }
+    //鼠标进入事件函数
+    function mouseOverEvent() {
+        moveElement(cloud,this.offsetLeft);
+    };
+    //鼠标离开事件函数
+    function mouseOutEvent() {
+        moveElement(cloud,lastNumber);
+    };
+    //鼠标点击事件函数
+    function clickEvent() {
+        lastNumber = this.offsetLeft;
+    };
+</script>
+
+</html>

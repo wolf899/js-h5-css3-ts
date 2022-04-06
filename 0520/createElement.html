@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<style>
+    div {
+        width: 300px;
+        height: 300px;
+        border: 5px solid black;
+    }
+    li{
+        list-style-type: none;
+    }
+</style>
+
+<body>
+
+    <input type="button" value="点我" id="btn" />
+    <div id="div1"></div>
+
+</body>
+<script>
+    var arr = ["11", "22", "33", "44", "55", "66", "77", "88"];
+    getid("btn").onclick = function () {
+        var ulobj = document.createElement("ul");
+        getid("div1").appendChild(ulobj);
+        for (var i = 0; i < arr.length; i++) {
+            var liobj = document.createElement("li");
+            liobj.innerHTML = arr[i];
+            ulobj.appendChild(liobj);
+            liobj.onmouseover = limouseover;
+            liobj.onmouseout = limouseout;
+        }
+    };
+    function limouseover(){
+        this.style.backgroundColor = "pink";
+    };
+    function limouseout(){
+        this.style.backgroundColor = "";
+    };
+</script>
+
+</html>

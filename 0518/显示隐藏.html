@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<!-- <body>
+    <input type="button" value="没点呢"/>
+    <input type="button" value="没点呢" />
+    <input type="button" value="没点呢" />
+    <input type="button" value="没点呢" />
+    <input type="button" value="没点呢" />
+</body>
+<script>
+    var inputobjs = document.getElementsByTagName("input");
+    for(var i = 0; i < inputobjs.length; i++){
+        inputobjs[i].onclick = function(){
+            for(var j = 0;j < inputobjs.length; j++){
+                inputobjs[j].value = "没点呢";
+            }
+            this.value = "点到了";
+        }
+    }
+</script> -->
+<style>
+    div {
+        width: 300px;
+        height: 200px;
+        background-color: pink;
+    }
+
+    .disnone {
+        display: none;
+    }
+</style>
+
+<body>
+    <input type="button" value="隐藏" id="btn" />
+    <div id="ddd"></div>
+</body>
+<script>
+    getid("btn").onclick = function () {
+        if (getid("ddd").className != "disnone") {
+            getid("ddd").className = "disnone";
+            this.value = "显示";
+        } else {
+            getid("ddd").className = "";
+            this.value = "隐藏";
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        background-image: url("../0518/images/1.jpg");
+        background-repeat: no-repeat;
+    }
+    
+    #mask {
+        background-color: rgba(255, 255, 255, 0.3);
+        height: 200px;
+        text-align: center;
+    }
+
+    #mask img {
+        width: 200px;
+        margin-top: 35px;
+        cursor: pointer;
+    }
+</style>
+<script src="index.js"></script>
+
+<body>
+
+<div id="mask">
+    <img src="../0518/images/1.jpg" alt="">
+    <img src="../0518/images/2.jpg" alt="">
+    <img src="../0518/images/3.jpg" alt="">
+</div>
+
+</body>
+<script>
+
+    var imgobjs = getid("mask").children;
+    for(var i = 0; i < imgobjs.length; i++){
+        imgobjs[i].onclick = function(){
+            document.body.style.backgroundImage ="url("+this.src+")";
+        };
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<body>
+    
+    <input type="button" value="点我" id="btn"/>
+
+    <ul id="ul1">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+        <li>55</li>
+        <li>66</li>
+        <li>77</li>
+        <li>88</li>
+    </ul>
+    
+</body>
+<script>
+
+    getid("btn").onclick = function(){
+        var count = 0;
+        var nodes = getid("ul1").childNodes;
+        for(var i = 0; i < nodes.length; i++){
+            if(nodes[i].nodeType == 1 && nodes[i].nodeName == "LI"){
+                count ++;
+                if(count % 2 == 0){
+                    nodes[i].style.backgroundColor = "red";
+                }else{
+                    nodes[i].style.backgroundColor = "yellow";
+                }
+            }
+        }
+
+
+    }
+
+</script>
+</html>

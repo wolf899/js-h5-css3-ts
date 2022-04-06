@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css.css" />
+    <title>Document</title>
+</head>
+<script src="index.js"></script>
+<script>
+    //定义数组保存所需属性
+    var config = [{
+            width: 400,
+            top: 20,
+            left: 50,
+            opacity: 0.2,
+            zIndex: 2
+        }, //0
+        {
+            width: 600,
+            top: 70,
+            left: 0,
+            opacity: 0.8,
+            zIndex: 3
+        }, //1
+        {
+            width: 800,
+            top: 100,
+            left: 200,
+            opacity: 1,
+            zIndex: 4
+        }, //2
+        {
+            width: 600,
+            top: 70,
+            left: 600,
+            opacity: 0.8,
+            zIndex: 3
+        }, //3
+        {
+            width: 400,
+            top: 20,
+            left: 750,
+            opacity: 0.2,
+            zIndex: 2
+        } //4
+    ];
+    
+    onload = function () {
+        var list = getId("slide").getElementsByTagName("li");
+        //设置标记
+        var flag = true;
+        //图片散开
+        function assign() {
+            for (var i = 0; i < list.length; i++) {
+                moveElement(list[i], config[i], function () {
+                    //动画全部执行完，将flag改为true
+                    flag = true;
+                });
+            }
+        };
+        assign();
+
+        getId("arrLeft").onclick = function () {
+            //让动画执行完才能执行下一次
+            if (flag) {
+                flag = false;
+                config.push(config.shift());
+                assign();
+            }
+        };
+
+        getId("arrRight").onclick = function () {
+            if (flag) {
+                flag = false;
+                config.unshift(config.pop());
+                assign();
+            }
+        };
+
+        getId("slide").onmouseover = function () {
+            //渐变显示
+            moveElement(getId("arrow"), {
+                "opacity": 1
+            });
+        };
+
+        getId("slide").onmouseout = function () {
+            moveElement(getId("arrow"), {
+                "opacity": 0
+            });
+        };
+    };
+</script>
+
+<body>
+    <div class="wrap" id="wrap">
+        <div class="slide" id="slide">
+            <ul>
+                <li><a href="#"><img src="images/slidepic1.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="images/slidepic2.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="images/slidepic3.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="images/slidepic4.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="images/slidepic5.jpg" alt="" /></a></li>
+            </ul>
+            <div class="arrow" id="arrow">
+                <!-- javascript:是给程序员看的说明不用来做跳转  javascript:void(0)一样 -->
+                <a href="javascript:;" class="prev" id="arrLeft"></a>
+                <a href="javascript:;" class="next" id="arrRight"></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
