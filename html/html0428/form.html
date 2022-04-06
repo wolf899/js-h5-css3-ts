@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form的使用</title>
+</head>
+<style>
+    
+    .photo{
+        display: none;
+    }
+
+    .textarea{
+        width: 400px;
+        height: 100px;
+    }
+
+    .img{
+        width: 400px;
+        height: 100px;
+    }
+
+</style>
+<body>
+    
+    <form action="" method="GET">
+        <fieldset>
+            <legend>个人资料</legend>
+
+            用户名：<input type="text" placeholder="请输入用户名"><br>
+            密码：<input type="password" placeholder="请输入密码"><br>
+            性别：<label for="man"><input type="radio" name="sex" id="man" value="man">男</label>
+            <label for="woman"><input type="radio" name="sex" id="woman" value="woman">女</label>
+            <label for="onther"><input type="radio" name="sex" id="onther" value="onther">其它</label>
+            <label for="secrecy"><input type="radio" name="sex" id="secrecy" value="secrecy">保密</label><br>
+            爱好：<label for="basketboll"><input type="checkbox" name="hoppy" value="basketboll" id="basketboll">篮球</label>
+            <label for="footboll"><input type="checkbox" name="hoppy" value="footboll" id="footboll">足球</label>
+            <label for="ping-pong"><input type="checkbox" name="hoppu" value="ping-pong" id="ping-pong">乒乓球</label>
+            <label for="paiqiu"><input type="checkbox" name="hoppy" value="paiqiu" id="paiqiu">排球</label>
+            <label for="run"><input type="checkbox" name="hoppy" value="run" id="run">跑步</label><br>
+            国籍：<select name="country">
+                <option value="China">China</option>
+                <option value="England">England</option>
+                <option value="Amercia">Amercia</option>
+                <option value="Russia">Russia</option>
+            </select><br>
+            开发语言：
+            <input type="text" id="mylanguage" list="language">
+                <datalist id="language">
+                    <option value="Java">编程语言</option>
+                    <option value="C++">编程语言</option>
+                    <option value="C#">编程语言</option>
+                    <option value="PHP">编程语言</option>
+                </datalist><br>
+            手机号：
+            <input type="tel" name="tel"><br>
+            邮箱：
+            <input type="email" name="email"><br>
+            出生日期：
+            <input type="datetime-local" name="date"><br>
+            喜欢的颜色：
+            <input type="color" name="color"><br>
+            工资：
+            <input type="number" min="4000" max="50000" name="money"><br>
+            工资等级：
+            <input type="range" name="moneylever"><br>
+            <input type="file" class="photo" id="photo"><label for="photo">点击上传照片</label><br>
+            <input type="textarea" class="textarea"><br>
+            <input type="image" src="../html0427/images/autumn.jpg" class="img"><br>
+            
+            <input type="reset" value="重置">
+            <input type="submit">
+        </fieldset>
+        
+        
+    </form>
+
+</body>
+</html>

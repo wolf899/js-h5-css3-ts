@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    div{
+        width: 800px;
+        height: 100px;
+        margin: auto;
+        /* background-color: black; */
+    }
+    
+    .textdiv{
+        width: 600px;
+        height: 100px;
+        background-image: linear-gradient(
+            -45deg,
+            white 25%,
+            black 25%,
+            black 50%,
+            white 50%,
+            white 75%,
+            black 75%,
+            black 100%
+        );
+        background-size: 100px 100%;
+    }
+
+    .textdiv:hover{
+        background-position: -1000px;
+        transition: all 5s;
+    }
+
+</style>
+<body> 
+
+    <div class="textdiv"></div>
+
+</body>
+</html>

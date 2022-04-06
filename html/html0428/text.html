@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .xxx{
+        color: yellow;
+    }
+
+    #sss{
+        color:blue
+    }
+
+    #father.father{
+        color: red;
+    }
+
+    #father.mmm{
+        color: green;
+    }
+
+    #son #ss #mmm{
+        color: yellow;
+    }
+
+    #father #son #ss.ss{
+        color: blue;
+    }
+
+    .father .son .ss .mmm{
+        color: pink;
+    }
+
+
+</style>
+<body>
+    
+    <div class="xxx" id="sss" style="color: red;">我是div</div>
+
+    <div class="father" id="father">
+        <div class="son" id="son">
+            <div class="ss" is="ss">
+                <p class="mmm" id="mmm">
+                    请我我会是什么颜色?
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

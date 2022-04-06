@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    div{
+        font-size: 20px;
+        height: 100px;
+        width: 300px;
+        cursor: pointer;
+    }
+
+    p{
+        background-color: rosybrown;
+        border-bottom: 2px solid red;
+    }
+
+    div div div{
+        height: 0px;
+        background-color: purple;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 2s;
+    }
+
+    .div-font:hover {
+        height: 200px;
+        visibility: visible;
+    }
+    
+</style>
+<body>
+    <div>
+        <div>
+            <p>我是第一个标题</p>
+            <div class="div-font">我是div里的内容</div>
+        </div>
+        <div>
+            <p>我是第二个标题</p>
+            <div class="div-font">我是div里的内容</div>
+        </div>
+        <div>
+            <p>我是第三个标题</p>
+            <div class="div-font">我是div里的内容</div>
+        </div>
+        <div>
+            <p>我是第四个标题</p>
+            <div class="div-font">我是div里的内容</div>
+        </div>
+        <div>
+            <p>我是第五个标题</p>
+            <div class="div-font">我是div里的内容</div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

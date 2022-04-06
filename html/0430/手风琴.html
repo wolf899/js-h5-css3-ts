@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    ul{
+        width: 500px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    p{
+        
+        background-color:chocolate;
+        border-bottom: purple 2px solid;
+        
+    }
+    
+    div{
+        height: 0px;
+        background-color: yellowgreen;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 2s;
+    }
+    
+    li:hover div{
+        height: 200px;
+        visibility: visible;
+        
+    }
+
+
+</style>
+<body>
+    
+    <ul>
+        <li>
+            <p>我是第一个标题</p>
+            <div>我是div里的内容</div>
+        </li>
+        <li>
+            <p>我是第二个标题</p>
+            <div>我是div里的内容</div>
+        </li>
+        <li>
+            <p>我是第三个标题</p>
+            <div>我是div里的内容</div>
+        </li>
+        <li>
+            <p>我是第四个标题</p>
+            <div>我是div里的内容</div>
+        </li>
+        <li>
+            <p>我是第五个标题</p>
+            <div>我是div里的内容</div>
+        </li>
+    </ul>
+
+</body>
+</html>
